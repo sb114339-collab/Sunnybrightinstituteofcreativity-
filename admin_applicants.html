@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8"><title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head><body>
+  <a class="back" href="{{ url_for('home') }}">← Back Home</a>
+  <h1>Admin Dashboard</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}<ul class="flashes">{% for cat,msg in messages %}<li class="{{cat}}">{{msg}}</li>{% endfor %}</ul>{% endif %}
+  {% endwith %}
+
+  <h2>Settings</h2>
+  <form method="post" action="{{ url_for('admin_settings') }}" class="form-card">
+    <label>Contact Phone</label>
+    <input name="contact_phone" value="{{ phone }}">
+    <label>Support Names (comma separated)</label>
+    <input name="support_names" value="{{ support }}">
+    <button class="btn" type="submit">Save Settings</button>
+  </form>
+
+  <h2>Manage Courses</h2>
+  <form method="post" action="{{ url_for('admin_add_course') }}" class="form-card">
+    <label>Course Title</label><input name="title" required>
+    <label>Description</label><input name="description">
+    <button class="btn" type="submit">Add Course</button>
+  </form>
+
+  <ul class="course-list">
+    {% for c in courses %}
+      <li>{{ c['title'] }}
+        <form style="display:inline" method="post" action="{{ url_for('admin_delete_course', course_id=c['id']) }}">
+          <button class="btn danger" type="submit">Delete</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Applicants</h2>
+  <table class="table">
+    <tr><th>ID</th><th>Name</th><th>Email</th><th>Course</th><th>Status</th><th>Actions</th></tr>
+    {% for a in applicants %}
+      <tr>
+        <td>{{ a['id'] }}</td>
+        <td>{{ a['fullname'] }}</td>
+        <td>{{ a['email'] }}</td>
+        <td>{{ a['course_title'] }}</td>
+        <td>{{ a['status'] }}</td>
+        <td>
+          <a class="btn" href="{{ url_for('admin_approve', student_id=a['id']) }}">Approve</a>
+          <a class="btn outline" href="{{ url_for('admin_reject', student_id=a['id']) }}">Reject</a>
+          <form style="display:inline" method="post" action="{{ url_for('admin_delete', student_id=a['id']) }}">
+            <button class="btn danger" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+
+  <a class="btn outline" href="{{ url_for('logout') }}">Logout</a>
+</body></html>
