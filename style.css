@@ -1,0 +1,81 @@
+/* static/style.css - dark/gold theme */
+:root {
+  --bg: #0f1113;
+  --card: #141516;
+  --muted: #bdbdbd;
+  --gold: #f1c40f;
+  --accent: #e67e22;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: #eee;
+}
+
+.site-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 20px;
+  background:#0b0b0b;
+  border-bottom:2px solid rgba(241,196,15,0.07);
+}
+
+.site-header .brand { color: var(--gold); font-weight:700; font-size:18px; }
+.main-nav a { margin-left:14px; color:#eee; text-decoration:none; }
+.main-nav a:hover { color:var(--gold); }
+
+.hero {
+  padding:40px 20px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.02);
+}
+
+.hero h1 { color:var(--gold); margin:0 0 8px; font-size:28px; }
+.hero p { color:var(--muted); margin:0 0 18px; }
+
+.cta-row { margin-top:12px; }
+.btn {
+  background: var(--gold);
+  color:#111;
+  padding:10px 16px;
+  border-radius:8px;
+  text-decoration:none;
+  display:inline-block;
+  margin:4px;
+  font-weight:700;
+}
+.btn.outline { background:transparent; color:var(--gold); border:1px solid rgba(241,196,15,0.2); }
+.btn.danger { background:#c0392b; color:#fff; }
+
+.content { padding:24px; }
+.course-list { list-style:none; padding:0; color:var(--muted); }
+.course-list li { padding:6px 0; }
+
+.form-card {
+  background: var(--card);
+  width: 100%;
+  max-width:420px;
+  margin:16px auto;
+  padding:16px;
+  border-radius:10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  text-align:left;
+}
+.form-card label { display:block; margin-top:8px; color:var(--muted); }
+.form-card input, .form-card select { width:100%; padding:10px; margin-top:6px; background:#0e0e0e; border:1px solid rgba(255,255,255,0.03); color:#fff; border-radius:6px; }
+
+.table { width:95%; margin:12px auto; border-collapse:collapse; }
+.table th, .table td { padding:10px; border-bottom:1px solid rgba(255,255,255,0.03); color:#ddd; text-align:left; }
+.table th { background:var(--gold); color:#111; }
+
+.site-footer { padding:12px 20px; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02); margin-top:30px; }
+
+.back { display:inline-block; margin:12px; color:var(--muted); text-decoration:none; }
+.flashes { list-style:none; padding:0; max-width:820px; margin:auto; }
+.flashes li { padding:8px; margin:6px auto; border-radius:6px; max-width:820px; color:#111; }
+.flashes li.success { background: #f1c40f; }
+.flashes li.error { background: #e74c3c; color:#fff; }
+.flashes li.info { background:#3498db; color:#fff; }
