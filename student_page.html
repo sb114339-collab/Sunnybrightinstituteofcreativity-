@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8"><title>Student Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head><body>
+  <a class="back" href="{{ url_for('home') }}">← Back Home</a>
+  <h1>Student Dashboard</h1>
+  <p><strong>Name:</strong> {{ s['fullname'] }}</p>
+  <p><strong>Email:</strong> {{ s['email'] }}</p>
+  <p><strong>Phone:</strong> {{ s['phone'] }}</p>
+  <p><strong>Course:</strong> {{ course_title }}</p>
+  <p><strong>Status:</strong> {{ s['status'] }}</p>
+  <p><strong>Matric No:</strong> {{ s['matric_no'] or "N/A" }}</p>
+
+  <a class="btn" href="{{ url_for('pay_placeholder', student_id=s['id']) }}">Pay (placeholder)</a>
+  <a class="btn outline" href="{{ url_for('logout') }}">Logout</a>
+</body></html>
