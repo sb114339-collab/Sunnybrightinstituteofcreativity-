@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <a class="back" href="{{ url_for('home') }}">← Logout</a>
+  <h1>Welcome, {{ student['fullname'] }}</h1>
+
+  <p>Email: {{ student['email'] }}</p>
+  <p>Phone: {{ student['phone'] }}</p>
+  <p>Course: {{ student['course'] }}</p>
+
+  <h2>Your Dashboard</h2>
+  <ul>
+    <li>Check admission status (coming soon)</li>
+    <li>Download study materials (coming soon)</li>
+  </ul>
+</body>
+</html>
