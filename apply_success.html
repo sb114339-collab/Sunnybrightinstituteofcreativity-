@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8"><title>Success</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head><body>
+  <a class="back" href="{{ url_for('home') }}">← Back Home</a>
+  <h1>Application Received</h1>
+  <p>Thank you <strong>{{ student['fullname'] }}</strong> for applying to <strong>{{ course_title }}</strong>.</p>
+  <p>Use your email and password to login: <a href="{{ url_for('login') }}">Login</a></p>
+</body></html>
